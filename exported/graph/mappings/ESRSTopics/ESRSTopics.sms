@@ -1,0 +1,40 @@
+prefix : <http://api.stardog.com/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix esrs: <https://eur-lex.europa.eu/vocab/esrs#>
+prefix so: <https://schema.org/>
+prefix unepfi: <https://www.unepfi.org/ont/impact/impact-radar-mappings#>
+prefix stardog: <tag:stardog:api:>
+prefix ESRSVocabulary: <tag:stardog:designer:ESRSVocabulary:model:>
+
+MAPPING
+FROM CSV {
+}
+TO {
+  ?ESRSsubSubTopic_iri a ESRSVocabulary:ESRSsubSubTopic ;
+    rdfs:label ?label_2 .
+
+  ?ESRSsubTopic_iri a ESRSVocabulary:ESRSsubTopic ;
+    rdfs:label ?label_1 .
+
+  ?ESRSTopic_iri a ESRSVocabulary:ESRSTopic ;
+    rdfs:label ?label ;
+    ESRSVocabulary:esrs ?ESRS_ID_string_field ;
+    ESRSVocabulary:topic ?Topic_string_field .
+
+  ?ESRSsubTopic_iri <tag:stardog:designer:ERSR_Vocabulary:model:has_sub_sub_topic> ?ESRSsubSubTopic_iri .
+
+  ?ESRSTopic_iri <tag:stardog:designer:ERSR_Vocabulary:model:has_sub_topic> ?ESRSsubTopic_iri .
+}
+WHERE {
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:{ESRS_ID}") AS ?ESRSTopic_iri)
+  BIND(xsd:string(sourceField("Topic")) AS ?label)
+  BIND(StrDt(sourceField("ESRS_ID"), xsd:string) AS ?ESRS_ID_string_field)
+  BIND(StrDt(sourceField("Topic"), xsd:string) AS ?Topic_string_field)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:{Sub-Topic_ID}") AS ?ESRSsubTopic_iri)
+  BIND(xsd:string(sourceField("Sub-topic")) AS ?label_1)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:{SubSubTopic_ID}") AS ?ESRSsubSubTopic_iri)
+  BIND(xsd:string(sourceField("Sub-sub-topics")) AS ?label_2)
+}

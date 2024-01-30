@@ -1,0 +1,50 @@
+prefix : <http://api.stardog.com/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix esrs: <https://eur-lex.europa.eu/vocab/esrs#>
+prefix so: <https://schema.org/>
+prefix unepfi: <https://www.unepfi.org/ont/impact/impact-radar-mappings#>
+prefix stardog: <tag:stardog:api:>
+prefix ESRSVocabulary: <tag:stardog:designer:ESRSVocabulary:model:>
+
+MAPPING
+FROM CSV {
+}
+TO {
+  ?UNEPFI_Impact_Area_iri a unepfi:ImpactArea ;
+    rdfs:label ?label_1 ;
+    unepfi:impactAreaDefinition ?AreaDefinition_string_field .
+
+  ?UNEPFI_Impact_iri a unepfi:Impact ;
+    rdfs:label ?label ;
+    unepfi:impactLabel ?Impact_string_field .
+
+  ?UNEPFI_Impact_Topic_iri a unepfi:ImpactTopic ;
+    rdfs:label ?label_2 ;
+    unepfi:impactTopicDefinition ?ImpactTopicDefinition_string_field ;
+    unepfi:mainSDGsEquivalences ?MainSDGsEquivalences1_string_field ;
+    unepfi:mainSDGsEquivalences ?MainSDGsEquivalences2_string_field .
+
+  ?UNEPFI_Impact_Area_iri unepfi:areaImpactTopic ?UNEPFI_Impact_Topic_iri .
+
+  ?UNEPFI_Impact_Area_iri unepfi:impacted_by ?UNEPFI_Impact_iri .
+
+  ?UNEPFI_Impact_iri unepfi:impactedAreas ?UNEPFI_Impact_Area_iri .
+
+  ?UNEPFI_Impact_Topic_iri unepfi:impactAreaForTopic ?UNEPFI_Impact_Area_iri .
+}
+WHERE {
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:Impact:{Impact_ID}") AS ?UNEPFI_Impact_iri)
+  BIND(xsd:string(sourceField("Impact")) AS ?label)
+  BIND(StrDt(sourceField("Impact"), xsd:string) AS ?Impact_string_field)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:{ImpactArea_ID}") AS ?UNEPFI_Impact_Area_iri)
+  BIND(xsd:string(sourceField("ImpactAreas")) AS ?label_1)
+  BIND(StrDt(sourceField("AreaDefinition"), xsd:string) AS ?AreaDefinition_string_field)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:{ImpactTopicID}") AS ?UNEPFI_Impact_Topic_iri)
+  BIND(xsd:string(sourceField("ImpactTopics")) AS ?label_2)
+  BIND(StrDt(sourceField("ImpactTopicDefinition"), xsd:string) AS ?ImpactTopicDefinition_string_field)
+  BIND(StrDt(sourceField("MainSDGsEquivalences1"), xsd:string) AS ?MainSDGsEquivalences1_string_field)
+  BIND(StrDt(sourceField("MainSDGsEquivalences2"), xsd:string) AS ?MainSDGsEquivalences2_string_field)
+}

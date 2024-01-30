@@ -1,0 +1,37 @@
+prefix : <http://api.stardog.com/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix esrs: <https://eur-lex.europa.eu/vocab/esrs#>
+prefix so: <https://schema.org/>
+prefix unepfi: <https://www.unepfi.org/ont/impact/impact-radar-mappings#>
+prefix stardog: <tag:stardog:api:>
+prefix ESRSVocabulary: <tag:stardog:designer:ESRSVocabulary:model:>
+
+MAPPING
+FROM CSV {
+}
+TO {
+  ?ESRSsubSubTopic_iri a ESRSVocabulary:ESRSsubSubTopic .
+
+  ?ESRSsubTopic_iri a ESRSVocabulary:ESRSsubTopic .
+
+  ?UNEPFI_Impact_Area_iri a unepfi:ImpactArea .
+
+  ?UNEPFI_Impact_Topic_iri a unepfi:ImpactTopic .
+
+  ?ESRSsubSubTopic_iri <tag:stardog:designer:ERSR_Vocabulary:model:eSRS_sub_sub_topic_to_UNEPFI_impact_area> ?UNEPFI_Impact_Area_iri .
+
+  ?ESRSsubSubTopic_iri <tag:stardog:designer:ERSR_Vocabulary:model:eSRS_sub_sub_topic_to_UNEPFI_impact_topic> ?UNEPFI_Impact_Topic_iri .
+
+  ?ESRSsubTopic_iri <tag:stardog:designer:ERSR_Vocabulary:model:eSRS_sub_topic_to_UNEPFI_impact_area> ?UNEPFI_Impact_Area_iri .
+
+  ?ESRSsubTopic_iri <tag:stardog:designer:ERSR_Vocabulary:model:eSRS_sub_topic_to_UNEPFI_impact_topic> ?UNEPFI_Impact_Topic_iri .
+}
+WHERE {
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:{UNEP_FI_ImpactArea_ID}") AS ?UNEPFI_Impact_Area_iri)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:{UNEP_FI_ImpactTopic_ID}") AS ?UNEPFI_Impact_Topic_iri)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:{ESRS_Sub-topic_ID}") AS ?ESRSsubTopic_iri)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:{ESRS_SubSubTopicID}") AS ?ESRSsubSubTopic_iri)
+}

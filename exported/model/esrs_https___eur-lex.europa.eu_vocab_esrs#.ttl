@@ -1,0 +1,114 @@
+@prefix : <http://api.stardog.com/> .
+@prefix esrs: <https://eur-lex.europa.eu/vocab/esrs#> .
+@prefix stardog: <tag:stardog:api:> .
+@prefix ESRSVocabulary: <tag:stardog:designer:ESRSVocabulary:model:> .
+@prefix unepfi: <https://www.unepfi.org/ont/impact/impact-radar-mappings#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix so: <https://schema.org/> .
+@prefix ERSR_Vocabulary: <tag:stardog:designer:ERSR_Vocabulary:model:> .
+
+<https://eur-lex.europa.eu/vocab/esrs#> rdfs:label "ERSR Vocabulary" ;
+   so:datePublished "2024-01-30T10:05:15.417Z"^^xsd:dateTime .
+ESRSVocabulary:ESRSsubSubTopic a owl:Class ;
+   rdfs:label "ESRSsubSubTopic" ;
+   rdfs:comment "A sub topic of an ESRS sub topic." ;
+   <tag:stardog:designer:colorId> "sd-qb-red" .
+ESRSVocabulary:ESRSsubTopic a owl:Class ;
+   rdfs:label "ESRSsubTopic" ;
+   rdfs:comment "A sub topic of an ESRSTopic." ;
+   <tag:stardog:designer:colorId> "sd-qb-light-orange" .
+ESRSVocabulary:ESRSTopic a owl:Class ;
+   rdfs:label "ESRSTopic" ;
+   rdfs:comment "European Sustainability Reporting Standards (ESRS) Structure - Topic Map" ;
+   <tag:stardog:designer:colorId> "sd-qb-orange" .
+ESRSVocabulary:esrs a owl:DatatypeProperty ;
+   rdfs:label "esrs" ;
+   so:domainIncludes ESRSVocabulary:ESRSTopic ;
+   so:rangeIncludes xsd:string .
+ESRSVocabulary:topic a owl:DatatypeProperty ;
+   rdfs:label "topic label" ;
+   so:domainIncludes ESRSVocabulary:ESRSTopic ;
+   so:rangeIncludes xsd:string .
+unepfi:Impact a owl:Class ;
+   rdfs:label "UNEPFI Impact" ;
+   rdfs:comment "Impact is applied to domains. The impacted entity is identified in this class." ;
+   <tag:stardog:designer:colorId> "sd-qb-gold" .
+unepfi:ImpactArea a owl:Class ;
+   rdfs:label "UNEPFI Impact Area" ;
+   rdfs:comment "The area impacted." ;
+   <tag:stardog:designer:colorId> "sd-qb-yellow-green" .
+unepfi:ImpactTopic a owl:Class ;
+   rdfs:label "UNEPFI Impact Topic" ;
+   rdfs:comment "A topic for the imacted area" ;
+   <tag:stardog:designer:colorId> "sd-qb-green" .
+unepfi:impactAreaDefinition a owl:DatatypeProperty ;
+   rdfs:label "impact area definition" ;
+   rdfs:comment "Definition for Impact Area." ;
+   rdfs:domain unepfi:ImpactArea ;
+   rdfs:range xsd:string .
+unepfi:impactLabel a owl:DatatypeProperty ;
+   rdfs:label "impact label" ;
+   rdfs:comment "Label for Impact" ;
+   rdfs:domain unepfi:Impact ;
+   rdfs:range xsd:string .
+unepfi:impactTopicDefinition a owl:DatatypeProperty ;
+   rdfs:label "impact topic definition" ;
+   rdfs:comment "Definition for Impact Topic." ;
+   rdfs:domain unepfi:ImpactTopic ;
+   rdfs:range xsd:string .
+unepfi:impactedAreas a owl:ObjectProperty ;
+   rdfs:label "impacted areas" ;
+   rdfs:comment "Impact Areas impacted by this Impact" ;
+   rdfs:domain unepfi:Impact ;
+   rdfs:range unepfi:ImpactArea .
+unepfi:impacted_by a owl:ObjectProperty ;
+   rdfs:label "impacted by" ;
+   rdfs:comment "Impact that impacted the Impact Area." ;
+   rdfs:domain unepfi:ImpactArea ;
+   rdfs:range unepfi:Impact .
+unepfi:areaImpactTopic a owl:ObjectProperty ;
+   rdfs:label "impacted topic" ;
+   rdfs:comment "Impact Area to Impact Topic mapping." ;
+   rdfs:domain unepfi:ImpactArea ;
+   rdfs:range unepfi:ImpactTopic .
+unepfi:impactAreaForTopic a owl:ObjectProperty ;
+   rdfs:label "area impacted" ;
+   rdfs:comment "Impact Topic to Impact Area mapping." ;
+   rdfs:domain unepfi:ImpactTopic ;
+   rdfs:range unepfi:ImpactArea .
+unepfi:mainSDGsEquivalences a owl:DatatypeProperty ;
+   rdfs:label "main SDGs equivalences" ;
+   rdfs:comment "Main SDGs equivalences for Impact Topic." ;
+   rdfs:domain unepfi:ImpactTopic ;
+   rdfs:range xsd:string .
+ERSR_Vocabulary:has_sub_sub_topic a owl:ObjectProperty ;
+   rdfs:label "has sub sub topic" ;
+   rdfs:domain ESRSVocabulary:ESRSsubTopic ;
+   rdfs:range ESRSVocabulary:ESRSsubSubTopic .
+ERSR_Vocabulary:has_sub_topic a owl:ObjectProperty ;
+   rdfs:label "has sub topic" ;
+   rdfs:domain ESRSVocabulary:ESRSTopic ;
+   rdfs:range ESRSVocabulary:ESRSsubTopic .
+ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area a owl:ObjectProperty ;
+   rdfs:label "eSRS sub sub topic to UNEPFI impact area" ;
+   rdfs:comment "ESRS sub sub topic to UNEP-FI Impact Area" ;
+   rdfs:domain ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:range unepfi:ImpactArea .
+ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic a owl:ObjectProperty ;
+   rdfs:label "eSRS sub sub topic to UNEPFI impact topic" ;
+   rdfs:comment "ESRS sub sub topic to UNEP-FI Impact Topic" ;
+   rdfs:domain ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:range unepfi:ImpactTopic .
+ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area a owl:ObjectProperty ;
+   rdfs:label "eSRS sub topic to UNEPFI impact area" ;
+   rdfs:comment "ESR Sub Topic to UNEP-FI Impact Area mapping" ;
+   rdfs:domain ESRSVocabulary:ESRSsubTopic ;
+   rdfs:range unepfi:ImpactArea .
+ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic a owl:ObjectProperty ;
+   rdfs:label "eSRS sub topic to UNEPFI impact topic" ;
+   rdfs:comment "ESRS Sub Topic to UNEP-FI Impact Topic mapping." ;
+   rdfs:domain ESRSVocabulary:ESRSsubTopic ;
+   rdfs:range unepfi:ImpactTopic .

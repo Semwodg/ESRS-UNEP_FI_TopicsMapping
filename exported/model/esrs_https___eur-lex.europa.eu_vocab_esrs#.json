@@ -1,0 +1,354 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ESRSVocabulary": "tag:stardog:designer:ESRSVocabulary:model:",
+    "so": "https://schema.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "esrs": "https://eur-lex.europa.eu/vocab/esrs#",
+    "@vocab": "http://api.stardog.com/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "ERSR_Vocabulary": "tag:stardog:designer:ERSR_Vocabulary:model:",
+    "stardog": "tag:stardog:api:",
+    "unepfi": "https://www.unepfi.org/ont/impact/impact-radar-mappings#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "https://eur-lex.europa.eu/vocab/esrs#",
+      "@graph": [
+        {
+          "@id": "https://eur-lex.europa.eu/vocab/esrs#",
+          "so:datePublished": {
+            "@value": "2024-01-30T10:05:15.417Z",
+            "@type": "xsd:dateTime"
+          },
+          "rdfs:label": {
+            "@value": "ERSR Vocabulary"
+          }
+        },
+        {
+          "@id": "ESRSVocabulary:ESRSsubSubTopic",
+          "@type": "owl:Class",
+          "rdfs:comment": {
+            "@value": "A sub topic of an ESRS sub topic."
+          },
+          "rdfs:label": {
+            "@value": "ESRSsubSubTopic"
+          },
+          "tag:stardog:designer:colorId": {
+            "@value": "sd-qb-red"
+          }
+        },
+        {
+          "@id": "ESRSVocabulary:ESRSsubTopic",
+          "@type": "owl:Class",
+          "rdfs:comment": {
+            "@value": "A sub topic of an ESRSTopic."
+          },
+          "rdfs:label": {
+            "@value": "ESRSsubTopic"
+          },
+          "tag:stardog:designer:colorId": {
+            "@value": "sd-qb-light-orange"
+          }
+        },
+        {
+          "@id": "ESRSVocabulary:ESRSTopic",
+          "@type": "owl:Class",
+          "rdfs:comment": {
+            "@value": "European Sustainability Reporting Standards (ESRS) Structure - Topic Map"
+          },
+          "rdfs:label": {
+            "@value": "ESRSTopic"
+          },
+          "tag:stardog:designer:colorId": {
+            "@value": "sd-qb-orange"
+          }
+        },
+        {
+          "@id": "ESRSVocabulary:esrs",
+          "@type": "owl:DatatypeProperty",
+          "so:rangeIncludes": {
+            "@id": "xsd:string"
+          },
+          "so:domainIncludes": {
+            "@id": "ESRSVocabulary:ESRSTopic"
+          },
+          "rdfs:label": {
+            "@value": "esrs"
+          }
+        },
+        {
+          "@id": "ESRSVocabulary:topic",
+          "@type": "owl:DatatypeProperty",
+          "so:rangeIncludes": {
+            "@id": "xsd:string"
+          },
+          "so:domainIncludes": {
+            "@id": "ESRSVocabulary:ESRSTopic"
+          },
+          "rdfs:label": {
+            "@value": "topic label"
+          }
+        },
+        {
+          "@id": "unepfi:Impact",
+          "@type": "owl:Class",
+          "rdfs:comment": {
+            "@value": "Impact is applied to domains. The impacted entity is identified in this class."
+          },
+          "rdfs:label": {
+            "@value": "UNEPFI Impact"
+          },
+          "tag:stardog:designer:colorId": {
+            "@value": "sd-qb-gold"
+          }
+        },
+        {
+          "@id": "unepfi:ImpactArea",
+          "@type": "owl:Class",
+          "rdfs:comment": {
+            "@value": "The area impacted."
+          },
+          "rdfs:label": {
+            "@value": "UNEPFI Impact Area"
+          },
+          "tag:stardog:designer:colorId": {
+            "@value": "sd-qb-yellow-green"
+          }
+        },
+        {
+          "@id": "unepfi:ImpactTopic",
+          "@type": "owl:Class",
+          "rdfs:comment": {
+            "@value": "A topic for the imacted area"
+          },
+          "rdfs:label": {
+            "@value": "UNEPFI Impact Topic"
+          },
+          "tag:stardog:designer:colorId": {
+            "@value": "sd-qb-green"
+          }
+        },
+        {
+          "@id": "unepfi:impactAreaDefinition",
+          "@type": "owl:DatatypeProperty",
+          "rdfs:domain": {
+            "@id": "unepfi:ImpactArea"
+          },
+          "rdfs:comment": {
+            "@value": "Definition for Impact Area."
+          },
+          "rdfs:label": {
+            "@value": "impact area definition"
+          },
+          "rdfs:range": {
+            "@id": "xsd:string"
+          }
+        },
+        {
+          "@id": "unepfi:impactLabel",
+          "@type": "owl:DatatypeProperty",
+          "rdfs:domain": {
+            "@id": "unepfi:Impact"
+          },
+          "rdfs:comment": {
+            "@value": "Label for Impact"
+          },
+          "rdfs:label": {
+            "@value": "impact label"
+          },
+          "rdfs:range": {
+            "@id": "xsd:string"
+          }
+        },
+        {
+          "@id": "unepfi:impactTopicDefinition",
+          "@type": "owl:DatatypeProperty",
+          "rdfs:domain": {
+            "@id": "unepfi:ImpactTopic"
+          },
+          "rdfs:comment": {
+            "@value": "Definition for Impact Topic."
+          },
+          "rdfs:label": {
+            "@value": "impact topic definition"
+          },
+          "rdfs:range": {
+            "@id": "xsd:string"
+          }
+        },
+        {
+          "@id": "unepfi:impactedAreas",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "unepfi:Impact"
+          },
+          "rdfs:comment": {
+            "@value": "Impact Areas impacted by this Impact"
+          },
+          "rdfs:label": {
+            "@value": "impacted areas"
+          },
+          "rdfs:range": {
+            "@id": "unepfi:ImpactArea"
+          }
+        },
+        {
+          "@id": "unepfi:impacted_by",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "unepfi:ImpactArea"
+          },
+          "rdfs:comment": {
+            "@value": "Impact that impacted the Impact Area."
+          },
+          "rdfs:label": {
+            "@value": "impacted by"
+          },
+          "rdfs:range": {
+            "@id": "unepfi:Impact"
+          }
+        },
+        {
+          "@id": "unepfi:areaImpactTopic",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "unepfi:ImpactArea"
+          },
+          "rdfs:comment": {
+            "@value": "Impact Area to Impact Topic mapping."
+          },
+          "rdfs:label": {
+            "@value": "impacted topic"
+          },
+          "rdfs:range": {
+            "@id": "unepfi:ImpactTopic"
+          }
+        },
+        {
+          "@id": "unepfi:impactAreaForTopic",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "unepfi:ImpactTopic"
+          },
+          "rdfs:comment": {
+            "@value": "Impact Topic to Impact Area mapping."
+          },
+          "rdfs:label": {
+            "@value": "area impacted"
+          },
+          "rdfs:range": {
+            "@id": "unepfi:ImpactArea"
+          }
+        },
+        {
+          "@id": "unepfi:mainSDGsEquivalences",
+          "@type": "owl:DatatypeProperty",
+          "rdfs:domain": {
+            "@id": "unepfi:ImpactTopic"
+          },
+          "rdfs:comment": {
+            "@value": "Main SDGs equivalences for Impact Topic."
+          },
+          "rdfs:label": {
+            "@value": "main SDGs equivalences"
+          },
+          "rdfs:range": {
+            "@id": "xsd:string"
+          }
+        },
+        {
+          "@id": "ERSR_Vocabulary:has_sub_sub_topic",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "ESRSVocabulary:ESRSsubTopic"
+          },
+          "rdfs:label": {
+            "@value": "has sub sub topic"
+          },
+          "rdfs:range": {
+            "@id": "ESRSVocabulary:ESRSsubSubTopic"
+          }
+        },
+        {
+          "@id": "ERSR_Vocabulary:has_sub_topic",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "ESRSVocabulary:ESRSTopic"
+          },
+          "rdfs:label": {
+            "@value": "has sub topic"
+          },
+          "rdfs:range": {
+            "@id": "ESRSVocabulary:ESRSsubTopic"
+          }
+        },
+        {
+          "@id": "ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "ESRSVocabulary:ESRSsubSubTopic"
+          },
+          "rdfs:comment": {
+            "@value": "ESRS sub sub topic to UNEP-FI Impact Area"
+          },
+          "rdfs:label": {
+            "@value": "eSRS sub sub topic to UNEPFI impact area"
+          },
+          "rdfs:range": {
+            "@id": "unepfi:ImpactArea"
+          }
+        },
+        {
+          "@id": "ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "ESRSVocabulary:ESRSsubSubTopic"
+          },
+          "rdfs:comment": {
+            "@value": "ESRS sub sub topic to UNEP-FI Impact Topic"
+          },
+          "rdfs:label": {
+            "@value": "eSRS sub sub topic to UNEPFI impact topic"
+          },
+          "rdfs:range": {
+            "@id": "unepfi:ImpactTopic"
+          }
+        },
+        {
+          "@id": "ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "ESRSVocabulary:ESRSsubTopic"
+          },
+          "rdfs:comment": {
+            "@value": "ESR Sub Topic to UNEP-FI Impact Area mapping"
+          },
+          "rdfs:label": {
+            "@value": "eSRS sub topic to UNEPFI impact area"
+          },
+          "rdfs:range": {
+            "@id": "unepfi:ImpactArea"
+          }
+        },
+        {
+          "@id": "ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic",
+          "@type": "owl:ObjectProperty",
+          "rdfs:domain": {
+            "@id": "ESRSVocabulary:ESRSsubTopic"
+          },
+          "rdfs:comment": {
+            "@value": "ESRS Sub Topic to UNEP-FI Impact Topic mapping."
+          },
+          "rdfs:label": {
+            "@value": "eSRS sub topic to UNEPFI impact topic"
+          },
+          "rdfs:range": {
+            "@id": "unepfi:ImpactTopic"
+          }
+        }
+      ]
+    }
+  ]
+}

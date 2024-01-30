@@ -1,0 +1,896 @@
+@prefix : <http://api.stardog.com/> .
+@prefix esrs: <https://eur-lex.europa.eu/vocab/esrs#> .
+@prefix stardog: <tag:stardog:api:> .
+@prefix ESRSVocabulary: <tag:stardog:designer:ESRSVocabulary:model:> .
+@prefix unepfi: <https://www.unepfi.org/ont/impact/impact-radar-mappings#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix so: <https://schema.org/> .
+@prefix ERSR_Vocabulary: <tag:stardog:designer:ERSR_Vocabulary:model:> .
+
+<https://eur-lex.europa.eu/vocab/esrs#> rdfs:label "ERSR Vocabulary" ;
+   so:datePublished "2024-01-30T10:05:15.417Z"^^xsd:dateTime .
+ESRSVocabulary:ESRSsubSubTopic a owl:Class ;
+   rdfs:label "ESRSsubSubTopic" ;
+   rdfs:comment "A sub topic of an ESRS sub topic." ;
+   <tag:stardog:designer:colorId> "sd-qb-red" .
+ESRSVocabulary:ESRSsubTopic a owl:Class ;
+   rdfs:label "ESRSsubTopic" ;
+   rdfs:comment "A sub topic of an ESRSTopic." ;
+   <tag:stardog:designer:colorId> "sd-qb-light-orange" .
+ESRSVocabulary:ESRSTopic a owl:Class ;
+   rdfs:label "ESRSTopic" ;
+   rdfs:comment "European Sustainability Reporting Standards (ESRS) Structure - Topic Map" ;
+   <tag:stardog:designer:colorId> "sd-qb-orange" .
+ESRSVocabulary:esrs a owl:DatatypeProperty ;
+   rdfs:label "esrs" ;
+   so:domainIncludes ESRSVocabulary:ESRSTopic ;
+   so:rangeIncludes xsd:string .
+ESRSVocabulary:topic a owl:DatatypeProperty ;
+   rdfs:label "topic label" ;
+   so:domainIncludes ESRSVocabulary:ESRSTopic ;
+   so:rangeIncludes xsd:string .
+unepfi:Impact a owl:Class , owl:Class ;
+   rdfs:label "Impact" , "UNEPFI Impact" ;
+   rdfs:comment "Impact is applied to domains. The impacted entity is identified in this class." , "Impact is applied to domains. The impacted entity is identified in this class." ;
+   <tag:stardog:designer:colorId> "sd-qb-gold" ;
+   <tag:stardog:studio:label> "Impact" .
+unepfi:ImpactArea a owl:Class , owl:Class ;
+   rdfs:label "Impact Area" , "UNEPFI Impact Area" ;
+   rdfs:comment "The area impacted." , "The area impacted." ;
+   <tag:stardog:designer:colorId> "sd-qb-yellow-green" ;
+   <tag:stardog:studio:label> "ImpactArea" .
+unepfi:ImpactTopic a owl:Class , owl:Class ;
+   rdfs:label "Impact Topic" , "UNEPFI Impact Topic" ;
+   rdfs:comment "A topic for the imacted area" , "A topic for the imacted area" ;
+   <tag:stardog:designer:colorId> "sd-qb-green" ;
+   <tag:stardog:studio:label> "ImpactTopic" .
+unepfi:impactAreaDefinition a owl:DatatypeProperty , owl:DatatypeProperty ;
+   rdfs:label "impact area definition" , "impact area definition" ;
+   rdfs:comment "Definition for Impact Area." , "Definition for Impact Area." ;
+   <tag:stardog:studio:label> "impact area definition" ;
+   rdfs:domain unepfi:ImpactArea , unepfi:ImpactArea ;
+   rdfs:range xsd:string , xsd:string .
+unepfi:impactLabel a owl:DatatypeProperty , owl:DatatypeProperty ;
+   rdfs:label "impact label" , "impact label" ;
+   rdfs:comment "Label for Impact" , "Label for Impact" ;
+   <tag:stardog:studio:label> "impact label" ;
+   rdfs:domain unepfi:Impact , unepfi:Impact ;
+   rdfs:range xsd:string , xsd:string .
+unepfi:impactTopicDefinition a owl:DatatypeProperty , owl:DatatypeProperty ;
+   rdfs:label "impact topic definition" , "impact topic definition" ;
+   rdfs:comment "Definition for Impact Topic." , "Definition for Impact Topic." ;
+   <tag:stardog:studio:label> "impact topic definition" ;
+   rdfs:domain unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:range xsd:string , xsd:string .
+unepfi:impactedAreas a owl:ObjectProperty , owl:ObjectProperty ;
+   rdfs:label "impacted areas" , "impacted areas" ;
+   rdfs:comment "Impact Areas impacted by this Impact" , "Impact Areas impacted by this Impact" ;
+   <tag:stardog:studio:label> "impacted areas" ;
+   rdfs:domain unepfi:Impact , unepfi:Impact ;
+   rdfs:range unepfi:ImpactArea , unepfi:ImpactArea .
+unepfi:impacted_by a owl:ObjectProperty , owl:ObjectProperty ;
+   rdfs:label "impacted by" , "impacted by" ;
+   rdfs:comment "Impact that impacted the Impact Area." , "Impact that impacted the Impact Area." ;
+   <tag:stardog:studio:label> "impacted by" ;
+   rdfs:domain unepfi:ImpactArea , unepfi:ImpactArea ;
+   rdfs:range unepfi:Impact , unepfi:Impact .
+unepfi:areaImpactTopic a owl:ObjectProperty , owl:ObjectProperty ;
+   rdfs:label "area impact topic" , "impacted topic" ;
+   rdfs:comment "Impact Area to Impact Topic mapping." , "Impact Area to Impact Topic mapping." ;
+   <tag:stardog:studio:label> "area impact topic" ;
+   rdfs:domain unepfi:ImpactArea , unepfi:ImpactArea ;
+   rdfs:range unepfi:ImpactTopic , unepfi:ImpactTopic .
+unepfi:impactAreaForTopic a owl:ObjectProperty , owl:ObjectProperty ;
+   rdfs:label "impact area for topic" , "area impacted" ;
+   rdfs:comment "Impact Topic to Impact Area mapping." , "Impact Topic to Impact Area mapping." ;
+   <tag:stardog:studio:label> "impact area for topic" ;
+   rdfs:domain unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:range unepfi:ImpactArea , unepfi:ImpactArea .
+unepfi:mainSDGsEquivalences a owl:DatatypeProperty , owl:DatatypeProperty ;
+   rdfs:label "main SDGs equivalences" , "main SDGs equivalences" ;
+   rdfs:comment "Main SDGs equivalences for Impact Topic." , "Main SDGs equivalences for Impact Topic." ;
+   <tag:stardog:studio:label> "main SDGs equivalences" ;
+   rdfs:domain unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:range xsd:string , xsd:string .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopics> rdfs:label "ESRSTopics" ;
+   so:datePublished "2024-01-30T10:05:15.417Z"^^xsd:dateTime .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Energy> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Energy" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:> a ESRSVocabulary:ESRSsubSubTopic ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Climatestability> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Wages> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waterbodies> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Air> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Soil> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waste> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Naturaldisasters> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Climatestability> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ruleoflaw> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Pollution> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Pollution" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waste> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Others> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Others" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Waste> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Waste" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waste> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Diversity> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Diversity" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ethnicracialequality> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Privacy> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Privacy" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Dataprivacy> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Incidents> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Incidents" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ruleoflaw> .
+ERSR_Vocabulary:has_sub_sub_topic a owl:ObjectProperty ;
+   rdfs:label "has sub sub topic" ;
+   rdfs:domain ESRSVocabulary:ESRSsubTopic ;
+   rdfs:range ESRSVocabulary:ESRSsubSubTopic .
+ERSR_Vocabulary:has_sub_topic a owl:ObjectProperty ;
+   rdfs:label "has sub topic" ;
+   rdfs:domain ESRSVocabulary:ESRSTopic ;
+   rdfs:range ESRSVocabulary:ESRSsubTopic .
+<tag:stardog:designer:ERSR_Vocabulary:data:UNEP_FI_ImpactRadar2022> rdfs:label "UNEP_FI_ImpactRadar2022" ;
+   so:datePublished "2024-01-30T10:05:15.417Z"^^xsd:dateTime .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:> a unepfi:ImpactTopic .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Conflict> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Conflict" ;
+   unepfi:impactTopicDefinition "Population's ability to live free from war, conflict and persecution. Source: UNHCR" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INTEGRITYSECURITYOFPERSON> ;
+   unepfi:mainSDGsEquivalences "16" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Water> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Water" ;
+   unepfi:impactTopicDefinition """Population’s accessibility to sufficient, safe, acceptable and affordable water
+for personal, domestic and economic uses. Safe water is water free from
+micro-organisms, chemical substances and radiological hazards that constitute
+a threat to a person’s health.
+International source:
+United Nations Office of the High Commissioner for Human Rights
+(OHCHR), UN-Water""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "6" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Food> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Food" ;
+   unepfi:impactTopicDefinition """Population’s accessibility, physical, social and economic, to sufficient, safe and
+nutritious food which meets their dietary needs and food preferences for an
+active and healthy life.
+International source:
+Food and Agriculture Organization of the United Nations (FAO)""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "2" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Energy> a unepfi:ImpactTopic ;
+   rdfs:label "Energy" ;
+   unepfi:impactTopicDefinition """Population’s accessibility to modern energy, to include: household access to a
+minimum level of electricity and to safer and more sustainable cooking and
+heating systems.
+International source:
+Organisation for Economic Co-operation and Development (OECD),
+International Energy Agency (IEA) """ ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "7" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Housing> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Housing" ;
+   unepfi:impactTopicDefinition """Population’s accessibility to adequate, safe and affordable housing: a place
+where to live in security, peace and dignity.
+International source:
+OHCHR, UN-Habitat""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "11" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Education> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Education" ;
+   unepfi:impactTopicDefinition """Population’s ability to access quality education and lifelong learning
+opportunities in an inclusive and equitable way. This refers to accessibility
+for all to elementary education, free and compulsory; and to technical,
+professional and higher education, as made available, equally accessible to all
+on the basis of merit.
+International source:
+Universal Declaration of Human Rights; United Nations Educational, Scientific
+and Cultural Organisation (UNESCO)""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "4" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Mobility> a unepfi:ImpactTopic ;
+   rdfs:label "Mobility" ;
+   unepfi:impactTopicDefinition """Population’s accessibility to safe, affordable, inclusive, efficient and sustainable
+mobility and transport systems and infrastructure.
+International source:
+The World Bank""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "11" , "9" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Information> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Information" ;
+   unepfi:impactTopicDefinition "Population’s accessibility to information and ideas through any media regardless of frontiers. The right to freedom of expression, which includes the right to seek, receive and impart information and ideas of all kinds, regardless of frontiers, through any media, applies to everyone, everywhere, and may only be subject to narrow restrictions. International source: Universal Declaration of Human Rights, UNESCO, United Nations General Assembly, OHCHR" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "16" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Connectivity> a unepfi:ImpactTopic ;
+   rdfs:label "Connectivity" ;
+   unepfi:impactTopicDefinition "Population's accessibility to universal and affordable information and communications technology. International source: Universal Declaration of Human Rights, UNESCO, United Nations General Assembly" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "9" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Finance> a unepfi:ImpactTopic ;
+   rdfs:label "Finance" ;
+   unepfi:impactTopicDefinition "Population's accesibility to the use of financial services by individuals and firms. Financial inclusion allows individuals and firms to take advantage of business opportunities, invest in education, save for retirement, and insure against risks. Financial health means a state in which an individual, household, micro, small or medium-sized enterprise can smoothly manage their current financial obligations and have confidence in their financial future. This includes four elements; managing day-to-day finances to meet short term needs; capacity to absorb financial shocks (resilience); capacity to reach future goals; feeling secure and in control of finances (confidence).  Source: The World Bank, UNEP" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "8" , "9" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:LIVELIHOOD> a unepfi:ImpactArea ;
+   rdfs:label "LIVELIHOOD" ;
+   unepfi:impactAreaDefinition """Population’s accessibility to full and productive employment and decent work, which delivers a fair income, security in the workplace, social protection for families, and involves prospects for personal development and social integration, freedom for people to express their concerns, organize and participate in the decisions that affect their lives and equality of opportunity and treatment.
+Source:
+The International Labour Organisation""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIALneedsofindividuals> ;
+   unepfi:areaImpactTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Employment> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Wages> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Employment> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Employment" ;
+   unepfi:impactTopicDefinition "Population's accesibility to productive work in conditions of freedom, equity, security and human dignity. Source: ILO" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:LIVELIHOOD> ;
+   unepfi:mainSDGsEquivalences "8" , "1" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Wages> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Wages" ;
+   unepfi:impactTopicDefinition "Population's accesibility to a living wage, defined as the remuneration received for a standard workweek by a worker in a particular place sufficient to afford a decent standard of living for the worker and her or his dependents. Elements of a decent standard of living include food, water, housing, education, health care, transportation, clothing and other essential needs including provision for unexpected events. Source: Global Living Wage Coalition" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:LIVELIHOOD> ;
+   unepfi:mainSDGsEquivalences "8" , "1" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INFRASTRUCTURE> a unepfi:ImpactArea ;
+   rdfs:label "INFRASTRUCTURE" ;
+   unepfi:impactAreaDefinition """Development and creation of vital services and systems that range from transport systems to power grids and sanitation networks, it provides the services that enable society to function and economies to thrive. 
+Source: 
+UNOPS""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIOECONOMICcollectivehumanneeds> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waterbodies> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Waterbodies" ;
+   unepfi:impactTopicDefinition """Quality, understood as the physical, chemical, biological, and taste-related
+properties of water, as well as the quantity of surface water and groundwater.
+Source:
+United Nations, European Commission, International Monetary Fund, OECD,
+World Bank""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:BIODIVERSITYHEALTHYECOSYSTEMS> ;
+   unepfi:mainSDGsEquivalences "6" , "14" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Air> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Air" ;
+   unepfi:impactTopicDefinition """Quality of ambient (outdoor) and household (indoor) air as exposed to
+contaminant or pollutant substances that do not disperse properly and
+that interfere with human health and welfare, or produce other harmful
+environmental effects.
+Source:
+United Nations Statistics Division, WHO""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:BIODIVERSITYHEALTHYECOSYSTEMS> ;
+   unepfi:mainSDGsEquivalences "11" , "12" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Soil> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Soil" ;
+   unepfi:impactTopicDefinition """Composition of soil and its ability to deliver ecosystem services, in terms
+of food production, as biodiversity pools and as a regulator of gases, water
+and nutrients. Exposure to pollutants and factors that may interfere with this
+ability and soil stability for future land use.
+Source:
+United Nations Glossary, FAO, European Environment Agency""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:BIODIVERSITYHEALTHYECOSYSTEMS> ;
+   unepfi:mainSDGsEquivalences "12" , "15" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Species" ;
+   unepfi:impactTopicDefinition """Ability to maintain species which can range from an animal, a tree, a coral, a fungus, an insect, or any number of other life forms on this planet. Endangered species are species that are listed as Critically Endangered (CR), Endangered (EN) or Vulnerable (VU) by the IUCN Red list. 
+Source: 
+WWF, IUCN""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:BIODIVERSITYHEALTHYECOSYSTEMS> ;
+   unepfi:mainSDGsEquivalences "14" , "15" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Habitat" ;
+   unepfi:impactTopicDefinition """Ability to protect, restore and promote sustainable use of terrestrial and non-terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss. 
+Source: 
+UN SDGs""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:BIODIVERSITYHEALTHYECOSYSTEMS> ;
+   unepfi:mainSDGsEquivalences "14" , "15" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:CIRCULARITY> a unepfi:ImpactArea ;
+   rdfs:label "CIRCULARITY" ;
+   unepfi:impactAreaDefinition """Circular processes contributing to circularity can be grouped into 4 categories, from the most impactful to the least:
+1. Reduce by design: reducing the amount of material used, particularly raw material, should be applied as an overall guiding principle from the earliest stages of design of products and services
+2. From a user-to-user perspective: Refuse, Reduce and Re-use
+3. From a user-to-business intermediary perspective: Repair, Refurbish and Remanufacture
+4. From business-to-business: Repurpose and Recycle.
+Source: UNEP""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:ENVIRONMENTplanetaryboundaries> ;
+   unepfi:areaImpactTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waste> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waste> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Waste" ;
+   unepfi:impactTopicDefinition """Ability to manage waste, including the control, monitoring and regulation of
+the production, collection, transport, treatment and disposal of waste, and
+the prevention of waste production through in-process modifications, reuse
+and recycling during a project lifecycle. This includes waste reduction.
+Source:
+United Nations Glossary, United Nations General Assembly""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:CIRCULARITY> ;
+   unepfi:mainSDGsEquivalences "11" , "12" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Microplastics> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Microplastics" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Water> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Water" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterwithdrawals> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterconsumption> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Wateruse> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterdischargesinwaterbodiesandintheoceans> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waterbodies> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area a owl:ObjectProperty ;
+   rdfs:label "eSRS sub sub topic to UNEPFI impact area" ;
+   rdfs:comment "ESRS sub sub topic to UNEP-FI Impact Area" ;
+   rdfs:domain ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:range unepfi:ImpactArea .
+ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic a owl:ObjectProperty ;
+   rdfs:label "eSRS sub sub topic to UNEPFI impact topic" ;
+   rdfs:comment "ESRS sub sub topic to UNEP-FI Impact Topic" ;
+   rdfs:domain ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:range unepfi:ImpactTopic .
+ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area a owl:ObjectProperty ;
+   rdfs:label "eSRS sub topic to UNEPFI impact area" ;
+   rdfs:comment "ESR Sub Topic to UNEP-FI Impact Area mapping" ;
+   rdfs:domain ESRSVocabulary:ESRSsubTopic ;
+   rdfs:range unepfi:ImpactArea .
+ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic a owl:ObjectProperty ;
+   rdfs:label "eSRS sub topic to UNEPFI impact topic" ;
+   rdfs:comment "ESRS Sub Topic to UNEP-FI Impact Topic mapping." ;
+   rdfs:domain ESRSVocabulary:ESRSsubTopic ;
+   rdfs:range unepfi:ImpactTopic .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopicMappedToUNEP_FI_Impacts> rdfs:label "ESRSTopicMappedToUNEP_FI_Impacts" ;
+   so:datePublished "2024-01-30T10:05:15.417Z"^^xsd:dateTime .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Climatechangeadaptation> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Climate change adaptation" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Naturaldisasters> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:E1> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Climate change" ;
+   ESRSVocabulary:esrs "E1" ;
+   ESRSVocabulary:topic "Climate change" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Energy> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Climatechangeadaptation> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Climatechangemitigation> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Climatechangemitigation> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Climate change mitigation" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Climatestability> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Climatestability> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Pollutionofair> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Pollution of air" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Air> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:E2> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Pollution" ;
+   ESRSVocabulary:esrs "E2" ;
+   ESRSVocabulary:topic "Pollution" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Microplastics> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Pollutionofair> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Pollutionofwater> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Pollutionofsoil> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Pollutionoflivingorganismsandfoodresources> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Substancesofconcern> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Substanceofveryhighconcern> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Pollutionofwater> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Pollution of water" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waterbodies> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Pollutionofsoil> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Pollution of soil" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Soil> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Pollutionoflivingorganismsandfoodresources> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Pollution of living organisms and food resources" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Substancesofconcern> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Substances of concern" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waste> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Substanceofveryhighconcern> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Substance of very high concern" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waste> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:E3> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Water and marine resources" ;
+   ESRSVocabulary:esrs "E3" ;
+   ESRSVocabulary:topic "Water and marine resources" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Water> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Marineresources> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterwithdrawals> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Water withdrawals" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterconsumption> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Water consumption" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Wateruse> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Water use" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterdischargesinwaterbodiesandintheoceans> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Water discharges in waterbodies and in the oceans" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waterbodies> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Marineresources> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Marine resources" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Extractionanduseofmarineresources> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Extractionanduseofmarineresources> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Extraction and use of marine resources" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Directimpactdriversofbiodiversityloss> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Direct impact drivers of biodiversity loss" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Pollution> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Others> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Climatechange> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Landusechangefreshwaterusechangeandseausechange> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Directexploitation> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Invasivealienspecies> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Climatestability> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waste> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Climatestability> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:E4> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Biodiversity and ecosystems" , "Consumers and end-users" ;
+   ESRSVocabulary:esrs "E4" ;
+   ESRSVocabulary:topic "Biodiversity and ecosystems" , "Consumers and end-users" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Directimpactdriversofbiodiversityloss> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Impactsonthestateofspecies> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Impactsontheextentandconditionofecosystems> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Impactsanddependenciesonecosystemservices> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Informationrelatedimpactsforconsumersandorendusers> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Personalsafetyofconsumersandorendusers> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Socialinclusionofconsumersandorendusers> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Climatechange> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Climate change" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Climatestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Climatestability> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Landusechangefreshwaterusechangeandseausechange> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Land-use change, fresh water-use change and sea-use change" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Directexploitation> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Direct exploitation" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Invasivealienspecies> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Invasive alien species" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Impactsonthestateofspecies> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Impacts on the state of species" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesSpeciespopulationsize> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesSpeciesglobalextinctionrisk> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesSpeciespopulationsize> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "\"Examples\" Species population size" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesSpeciesglobalextinctionrisk> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "\"Examples\" Species global extinction risk" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Impactsontheextentandconditionofecosystems> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Impacts on the extent and condition of ecosystems" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesLanddegredation> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesDesertification> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesSoilsealing> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Soil> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesLanddegredation> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "\"Examples\" Land degredation" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Soil> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesDesertification> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "\"Examples\" Desertification" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Soil> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:ExamplesSoilsealing> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "\"Examples\" Soil sealing" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Soil> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Impactsanddependenciesonecosystemservices> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Impacts and dependencies on ecosystem services" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Resourcesinflowsincludingresourceuse> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Resources inflows, including resource use" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:E5> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Circular economy" ;
+   ESRSVocabulary:esrs "E5" ;
+   ESRSVocabulary:topic "Circular economy" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Waste> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Resourcesinflowsincludingresourceuse> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Resourceoutflowsrelatedtoproductsandservices> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Resourceoutflowsrelatedtoproductsandservices> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Resource outflows related to products and services" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Circularity> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Workingconditions> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Working conditions" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Secureemployment> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Workingtime> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Adequatewages> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Socialdialogue> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofassociationtheexistenceofworkscouncilsandtheinformationconsultationandparticipationrightsofworkers> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Collectivebargainingincludingrateofworkerscoveredbycollectiveagreements> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Worklifebalance> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Healthandsafety> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofassociationincludingtheexistenceofworkscouncils> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Collectivebargaining> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Employment> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Wages> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:S1> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Own workforce" ;
+   ESRSVocabulary:esrs "S1" ;
+   ESRSVocabulary:topic "Own workforce" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Workingconditions> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Equaltreatmentandopportunitiesforall> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Otherworkrelatedrights> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Secureemployment> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Secure employment" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Employment> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Workingtime> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Working time" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Employment> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Adequatewages> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Adequate wages" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Wages> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Socialdialogue> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Social dialogue" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofassociationtheexistenceofworkscouncilsandtheinformationconsultationandparticipationrightsofworkers> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Freedom of association, the existence of works councils and the information, consultation and participation rights of workers" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Collectivebargainingincludingrateofworkerscoveredbycollectiveagreements> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Collective bargaining, including rate of workers covered by collective agreements" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Worklifebalance> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Work-life balance" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Healthandsafety> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Health and safety" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Equaltreatmentandopportunitiesforall> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Equal treatment and opportunities for all" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Diversity> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Genderequalityandequalpayforworkofequalvalue> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Trainingandskillsdevelopment> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Employmentandinclusionofpersonswithdisabilities> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Measuresagainstviolenceandharassmentintheworkplace> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Education> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Genderequality> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ethnicracialequality> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Othervulnerablegroups> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Genderequalityandequalpayforworkofequalvalue> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Gender equality and equal pay for work of equal value" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Genderequality> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Trainingandskillsdevelopment> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Training and skills development" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Education> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Employmentandinclusionofpersonswithdisabilities> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Employment and inclusion of persons with disabilities" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Othervulnerablegroups> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Measuresagainstviolenceandharassmentintheworkplace> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Measures against violence and harassment in the workplace" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Otherworkrelatedrights> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Other work-related rights" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Privacy> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Childlabour> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Forcedlabour> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Adequatehousing> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterandsanitation> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Modernslavery> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Childlabour> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Childlabour> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Child labour" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Childlabour> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Forcedlabour> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Forced labour" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Modernslavery> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Adequatehousing> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Adequate housing" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Housing> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:S2> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Workers in the value chain" ;
+   ESRSVocabulary:esrs "S2" ;
+   ESRSVocabulary:topic "Workers in the value chain" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Workingconditions> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Equaltreatmentandopportunitiesforall> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Otherworkrelatedrights> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofassociationincludingtheexistenceofworkscouncils> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Freedom of association, including the existence of works councils" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Collectivebargaining> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Collective bargaining" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterandsanitation> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Water and sanitation" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Water> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Communities%27economicsocialandculturalrights> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Communities' economic, social and cultural rights" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Adequatehousing> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Waterandsanitation> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Adequatefood> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Landrelatedimpacts> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Securityrelatedimpacts> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Conflict> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Water> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Food> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Housing> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Culture%26heritage> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:S3> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Affected communities" ;
+   ESRSVocabulary:esrs "S3" ;
+   ESRSVocabulary:topic "Affected communities" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Communities%27economicsocialandculturalrights> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Communities%27civilandpoliticalrights> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Rightsofindigenouscommunities> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Adequatefood> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Adequate food" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Food> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Landrelatedimpacts> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Land-related impacts" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Culture%26heritage> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Securityrelatedimpacts> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Security-related impacts" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Conflict> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Communities%27civilandpoliticalrights> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Communities' civil and political rights" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofexpression> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofassembly> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Impactsonhumanrightsdefenders> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofexpression> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Freedom of expression" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofassembly> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Freedom of assembly" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Impactsonhumanrightsdefenders> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Impacts on human rights defenders" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Rightsofindigenouscommunities> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Rights of indigenous communities" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freepriorandinformedconsent> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Selfdetermination> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Culturalrights> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Culture%26heritage> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ruleoflaw> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freepriorandinformedconsent> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Free, prior and informed consent" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ruleoflaw> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Selfdetermination> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Self-determination" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Culturalrights> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Cultural rights" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Culture%26heritage> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Informationrelatedimpactsforconsumersandorendusers> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Information-related impacts for consumers and/or end users" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Privacy> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Freedomofexpression> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Accesstoqualityinformation> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Information> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Dataprivacy> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Accesstoqualityinformation> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Access to (quality) information" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Information> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Personalsafetyofconsumersandorendusers> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Personal safety of consumers and/or end-users" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Healthandsafety> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Securityofaperson> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Protectionofchildren> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Securityofaperson> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Security of a person" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Protectionofchildren> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Protection of children" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Socialinclusionofconsumersandorendusers> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Social inclusion of consumers and/or end-users" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Nondiscrimination> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Accesstoproductsandservices> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Responsiblemarketingpractices> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Nondiscrimination> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Non-discrimination" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Accesstoproductsandservices> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Access to products and services" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Responsiblemarketingpractices> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Responsible marketing practices" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Corporateculture> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Corporate culture" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSTopic:G1> a ESRSVocabulary:ESRSTopic ;
+   rdfs:label "Business conduct" ;
+   ESRSVocabulary:esrs "G1" ;
+   ESRSVocabulary:topic "Business conduct" ;
+   ERSR_Vocabulary:has_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Corporateculture> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Protectionofwhistleblowers> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Animalwelfare> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Politicalengagement> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Managementofrelationshipswithsuppliersincludingpaymentpractices> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Corruptionandbribery> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Protectionofwhistleblowers> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Protection of whistle-blowers" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Animalwelfare> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Animal welfare" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Politicalengagement> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Political engagement" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ruleoflaw> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Managementofrelationshipswithsuppliersincludingpaymentpractices> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Management of relationships with suppliers including payment practices" ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Livelihood> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Wages> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubTopic:Corruptionandbribery> a ESRSVocabulary:ESRSsubTopic , ESRSVocabulary:ESRSsubTopic ;
+   rdfs:label "Corruption and bribery" ;
+   ERSR_Vocabulary:has_sub_sub_topic <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Incidents> , <tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Preventionanddetectionincludingtraining> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ruleoflaw> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ESRSsubSubTopic:Preventionanddetectionincludingtraining> a ESRSVocabulary:ESRSsubSubTopic , ESRSVocabulary:ESRSsubSubTopic ;
+   rdfs:label "Prevention and detection including training" ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_area <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> ;
+   ERSR_Vocabulary:eSRS_sub_sub_topic_to_UNEPFI_impact_topic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ruleoflaw> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INTEGRITYSECURITYOFPERSON> a unepfi:ImpactArea ;
+   rdfs:label "INTEGRITY & SECURITY OF PERSON" ;
+   unepfi:impactAreaDefinition """Population’s ability (read as ability of the person) to enjoy freedom from injury to the body and mind; freedom from torture and cruel, inhuman or degrading treatment or punishment; freedom from slavery and servitude; freedom from forced displacement from conflicts or climate change/natural disasters. It also includes data security, data privacy and protection.
+Source:
+United Nations General Assembly, Universal Declaration of Human Rights,
+United Nations Human Rights Committee, United Nations Development
+Group """ ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIALneedsofindividuals> ;
+   unepfi:areaImpactTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Conflict> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Modernslavery> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Childlabour> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Dataprivacy> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Naturaldisasters> .
+<tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIALneedsofindividuals> a unepfi:Impact ;
+   rdfs:label "SOCIAL (needs of individuals)" ;
+   unepfi:impactLabel "SOCIAL (needs of individuals)" ;
+   unepfi:impactedAreas <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:LIVELIHOOD> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INTEGRITYSECURITYOFPERSON> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:HEALTHSAFETY> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:EQUALITYJUSTICE> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Modernslavery> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Modern slavery" ;
+   unepfi:impactTopicDefinition "Population's ability to live free from severe exploitation for personal or commercial gain. This can take the forms of human trafficking, forced labour, debt bondage et al. Source: Anti-Slavery" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INTEGRITYSECURITYOFPERSON> ;
+   unepfi:mainSDGsEquivalences "16" , "8" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Childlabour> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Child labour" ;
+   unepfi:impactTopicDefinition "Population's ability for children to live free from the deprivation of their childhood, their portential and their dignity. It can refer to work that is mentally, physically, socially or morally dangerous and harmful to children; and that interferes with their schooling by: depriving them of the opportunity to attend school; obliging them to leave school prematurely; or requiring them to attempt to combine school attendance with excessively long and heavy work. Source: ILO" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INTEGRITYSECURITYOFPERSON> ;
+   unepfi:mainSDGsEquivalences "16" , "8" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Dataprivacy> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Data privacy " ;
+   unepfi:impactTopicDefinition "Population's accessibility to the right of personal privacy that people have against the possible use of their personal data by data processors in an unauthorized manner or against the requirements of force. This discipline is to protect the privacy of individuals at risk for the collection and misuse their personal data. Source: OAS" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INTEGRITYSECURITYOFPERSON> ;
+   unepfi:mainSDGsEquivalences "16" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Naturaldisasters> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Natural disasters" ;
+   unepfi:impactTopicDefinition "Population's ability to live free from the long-standing effects of natural disasters including the displacement of population and worsened living conditions, additionally involving the limitation of natural resources such as drinking water. Source: UNHCR" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INTEGRITYSECURITYOFPERSON> ;
+   unepfi:mainSDGsEquivalences "11" , "13" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:HEALTHSAFETY> a unepfi:ImpactArea ;
+   rdfs:label "HEALTH  & SAFETY" ;
+   unepfi:impactAreaDefinition "Populations ability to live in a state of complete physical, mental and social well-being including the aspects of safety and not merely the absence of disease or infirmity. Including the ability to meet various human needs, some of which essential to thrive and feel satisfied with their life. Source: WHO, OECD" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIALneedsofindividuals> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> a unepfi:ImpactArea ;
+   rdfs:label "AVAILABILITY, ACCESSIBILITY, AFFORDABILITY & QUALITY OF RESOURCES & SERVICES" ;
+   unepfi:impactAreaDefinition "Populations ability to access resources and services that pertain to their individual's needs, this includes the availability, accessibility, affordability, and quality of resources and services." ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIALneedsofindividuals> ;
+   unepfi:areaImpactTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Water> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Food> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Energy> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Housing> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Education> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Mobility> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Information> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Connectivity> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Finance> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthcaresanitatation> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Cultureheritage> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthcaresanitatation> a unepfi:ImpactTopic ;
+   rdfs:label "Healthcare & sanitatation" ;
+   unepfi:impactTopicDefinition """Population’s ability to access quality essential health-care services and effective, quality
+and affordable essential medicines and vaccines. It also includes sanitation,
+which refers to population’s accessibility to facilities and services that ensure
+privacy and dignity, ensuring a clean and healthy living environment for all.
+International source:
+World Health Organization (WHO), UN-Water""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "6" , "3" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Cultureheritage> a unepfi:ImpactTopic ;
+   rdfs:label "Culture & heritage" ;
+   unepfi:impactTopicDefinition """Population’s ability to access and participate in cultural life, to enjoy the arts
+and to share in scientific advancement and its benefits. This includes the
+safeguarding and promotion of cultural heritage in all its forms: tangible and
+intangible, cultural and natural, movable and immovable.
+International source:
+UN General Assembly, Universal Declaration of Human Rights, UNESCO""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:AVAILABILITYACCESSIBILITYAFFORDABILITYQUALITYOFRESOURCESSERVICES> ;
+   unepfi:mainSDGsEquivalences "11" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Socialprotection> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Social protection" ;
+   unepfi:impactTopicDefinition "Population's accesibility to social protection, or social security, as the set of policies and programmes designed to reduce and prevent poverty and vulnerability across the life cycle. Social protection includes nine main areas: child and family benefits, maternity protection, unemployment support, employment injury benefits, sickness benefits, health protection, old-age benefits, disability benefits and survivors’ benefits. Source: ILO" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:LIVELIHOOD> ;
+   unepfi:mainSDGsEquivalences "1" , "10" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:EQUALITYJUSTICE> a unepfi:ImpactArea ;
+   rdfs:label "EQUALITY  & JUSTICE" ;
+   unepfi:impactAreaDefinition """Population’s ability to live free from discrimination of all kinds (gender, racial, ethnic, age et al.) and to access justice in an equal and inclusive way.
+Source:
+United Nations General Assembly""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIALneedsofindividuals> ;
+   unepfi:areaImpactTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Genderequality> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ethnicracialequality> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Agediscriminiation> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Othervulnerablegroups> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Genderequality> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Gender equality" ;
+   unepfi:impactTopicDefinition "Population's ability to live free from gender inequality, where there is an equal treatment of rights, responsibilities and opportunities of women and men. Source: UN WOMEN" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:EQUALITYJUSTICE> ;
+   unepfi:mainSDGsEquivalences "5" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ethnicracialequality> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Ethnic/racial equality" ;
+   unepfi:impactTopicDefinition "Population's ability to live free from ethnic/racial discrimination which is defined on any distinction, exclusion, restriction or preference based on race, colour, descent, or national or ethnic origin which has the purpose or effect of nullifying or impairing the recognition, enjoyment or exercise, on an equal footing, of human rights and fundamental freedoms in the political, economic, social, cultural or any other field of public life. Source: OHCHR  " ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:EQUALITYJUSTICE> ;
+   unepfi:mainSDGsEquivalences "10" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Agediscriminiation> a unepfi:ImpactTopic ;
+   rdfs:label "Age discriminiation" ;
+   unepfi:impactTopicDefinition "Population's ability to live free fom ageism, defined as the stereotypes (how we think), prejudice (how we feel) and discrimination (how we act) towards others or oneself based on age. Source: WHO" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:EQUALITYJUSTICE> ;
+   unepfi:mainSDGsEquivalences "10" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Othervulnerablegroups> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Other vulnerable groups" ;
+   unepfi:impactTopicDefinition "Population's ability for vulnerable groups to live free from discrimination. These groups can include persons with disabilities, LBGT+ persons, migrants, refugees and asylum-seekers. Source: OHCHR" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:EQUALITYJUSTICE> ;
+   unepfi:mainSDGsEquivalences "10" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:STRONGINSITUTIONSPEACESTABILITY> a unepfi:ImpactArea ;
+   rdfs:label "STRONG INSITUTIONS, PEACE & STABILITY" ;
+   unepfi:impactAreaDefinition """Population’s ability to benefit from effective, accountable and inclusive institutions, which support the expansion of rule of law, maintenance of civil liberties and overall political and economic stability. Protection from corruption and bribery in all their forms, illicit financial and arms flows, all forms of organized crime and interference with rule of law; and recovery and return of stolen assets.
+Source:
+United Nations General Assembly, Human Rights Council, OECD""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIOECONOMICcollectivehumanneeds> ;
+   unepfi:areaImpactTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:RuleofLaw> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> .
+<tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIOECONOMICcollectivehumanneeds> a unepfi:Impact ;
+   rdfs:label "SOCIO-ECONOMIC (collective human needs)" ;
+   unepfi:impactLabel "SOCIO-ECONOMIC (collective human needs)" ;
+   unepfi:impactedAreas <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:INFRASTRUCTURE> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:STRONGINSITUTIONSPEACESTABILITY> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:HEALTHYECONOMIES> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:SOCIOECONOMICCONVERGENCE> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:RuleofLaw> a unepfi:ImpactTopic ;
+   rdfs:label "Rule of Law" ;
+   unepfi:impactTopicDefinition """Population’s ability to benefit from effective, accountable and inclusive institutions, which support the expansion of rule of law. Protection from corruption and bribery in all their forms, illicit financial and arms flows, all forms of organized crime and interference with rule of law; and recovery and return of stolen assets.
+Source:
+United Nations General Assembly, Human Rights Council, OECD""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:STRONGINSITUTIONSPEACESTABILITY> ;
+   unepfi:mainSDGsEquivalences "16" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Civilliberties> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Civil liberties" ;
+   unepfi:impactTopicDefinition """Population’s ability to benefit from effective, accountable and inclusive institutions, which support the maintenance and expansion of civil liberties.
+Source:
+United Nations General Assembly, Human Rights Council, OECD""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:STRONGINSITUTIONSPEACESTABILITY> ;
+   unepfi:mainSDGsEquivalences "16" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:HEALTHYECONOMIES> a unepfi:ImpactArea ;
+   rdfs:label "HEALTHY ECONOMIES" ;
+   unepfi:impactAreaDefinition """Development and creation of sustainable, diverse and innovative markets, that add value to society and the economy. This also includes the process of economic diversification where an economy shifts away from a single income source toward multiple sources from a growing range of sectors and markets.
+Source:
+European Bank for Reconstruction and Development, OECD, United
+Nations Special Advocate for Inclusive Finance, United Nations Development
+Programme, SDGs, UNFCCC""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIOECONOMICcollectivehumanneeds> ;
+   unepfi:areaImpactTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Sectordiversity> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:FlourishingMSMEs> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Sectordiversity> a unepfi:ImpactTopic ;
+   rdfs:label "Sector diversity" ;
+   unepfi:impactTopicDefinition """Diversifying local and national economies away from a single income source towards multiple sources from a growing range of sectors and markets. 
+Source: 
+UNFCCC""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:HEALTHYECONOMIES> ;
+   unepfi:mainSDGsEquivalences "8" , "9" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:FlourishingMSMEs> a unepfi:ImpactTopic ;
+   rdfs:label "Flourishing MSMEs" ;
+   unepfi:impactTopicDefinition "Development and value creation through successful MSMEs" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:HEALTHYECONOMIES> ;
+   unepfi:mainSDGsEquivalences "8" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:SOCIOECONOMICCONVERGENCE> a unepfi:ImpactArea ;
+   rdfs:label "SOCIO-ECONOMIC CONVERGENCE" ;
+   unepfi:impactAreaDefinition """Ability of countries to reduce inequality at the individual and population level.
+income.
+Source:
+United Nations Department of Economic and Social Affairs""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:SOCIOECONOMICcollectivehumanneeds> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:CLIMATESTABILITY> a unepfi:ImpactArea ;
+   rdfs:label "CLIMATE STABILITY" ;
+   unepfi:impactAreaDefinition """State of the climate when not affected by human activities. Human activities change the composition of the global atmosphere with the exposure to greenhouse gas (GHG) emissions being a direct factor contributing to climate change. Climate stability can be achieved through the: 
+- avoidance of GHG emissions (avoided emissions are emission reductions that occur outside of a product's life cycle or value chain, but as a result of the use of that product) 
+- reduction of GHG emissions (limitation of emissions directly related to the product)
+- removal of GHG emissions (anthropogenic activities removing CO2 from the atmosphere and durably storing it in geological, terrestrial, or ocean reservoirs, or in products. It includes existing and potential anthropogenic enhancement of biological or geochemical sinks and direct air capture and storage)
+Source:
+Intergovernmental Panel on Climate Change, Global CCS Institute, World Resources Institute""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:ENVIRONMENTplanetaryboundaries> .
+<tag:stardog:designer:ERSR_Vocabulary:data:Impact:ENVIRONMENTplanetaryboundaries> a unepfi:Impact ;
+   rdfs:label "ENVIRONMENT (planetary boundaries)" ;
+   unepfi:impactLabel "ENVIRONMENT (planetary boundaries)" ;
+   unepfi:impactedAreas <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:CIRCULARITY> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:CLIMATESTABILITY> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:BIODIVERSITYHEALTHYECOSYSTEMS> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:BIODIVERSITYHEALTHYECOSYSTEMS> a unepfi:ImpactArea ;
+   rdfs:label "BIODIVERSITY & HEALTHY ECOSYSTEMS" ;
+   unepfi:impactAreaDefinition """Variety of living organisms from all sources including, terrestrial, marine
+and aquatic ecosystems and the ecosystems they are part of. This includes
+diversity within species, between species and of ecosystems varying from within waterbodies, soil and in the air.
+Source:
+United Nations, Convention on Biological Diversity""" ;
+   unepfi:impacted_by <tag:stardog:designer:ERSR_Vocabulary:data:Impact:ENVIRONMENTplanetaryboundaries> ;
+   unepfi:areaImpactTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Waterbodies> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Air> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Soil> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Species> , <tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Habitat> .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Resourceintensity> a unepfi:ImpactTopic , unepfi:ImpactTopic ;
+   rdfs:label "Resource intensity" ;
+   unepfi:impactTopicDefinition """Efficient use of limited, non-renewable natural resources (which cannot be regenerated after exploitation/extraction) and renewable natural resources (which can return to their previous stock levels by natural processes of growth or replenishment) in the process of exploiting nature for production and consumption purposes. Can also be read as resource security.
+Source:
+United Nations Glossary, International Resource Panel""" ;
+   unepfi:impactAreaForTopic <tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:CIRCULARITY> ;
+   unepfi:mainSDGsEquivalences "12" .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Integrityandsecurityofperson> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Climatestability> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Climatestability> a unepfi:ImpactTopic .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Biodiversityhealthyecosystems> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Healthsafety> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Healthandsafety> a unepfi:ImpactTopic .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Equalityjustice> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Availabilityaccessibilityaffordabilityqualityofresourcesservices> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Culture%26heritage> a unepfi:ImpactTopic .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:Stronginstitutionspeacestability> a unepfi:ImpactArea .
+<tag:stardog:designer:ERSR_Vocabulary:data:ImpactTopic:Ruleoflaw> a unepfi:ImpactTopic .
