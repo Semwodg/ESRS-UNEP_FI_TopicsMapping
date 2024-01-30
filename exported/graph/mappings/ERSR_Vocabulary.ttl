@@ -37,51 +37,51 @@ ESRSVocabulary:ESRSTopic a owl:Class ;
 unepfi:areaImpactTopic a owl:ObjectProperty ;
   rdfs:label "impacted topic" ;
   rdfs:comment "Impact Area to Impact Topic mapping." ;
-  rdfs:domain unepfi:ImpactArea ;
-  rdfs:range unepfi:ImpactTopic .
+  so:domainIncludes unepfi:ImpactArea ;
+  so:rangeIncludes unepfi:ImpactTopic .
 unepfi:impactAreaForTopic a owl:ObjectProperty ;
   rdfs:label "area impacted" ;
   rdfs:comment "Impact Topic to Impact Area mapping." ;
-  rdfs:domain unepfi:ImpactTopic ;
-  rdfs:range unepfi:ImpactArea .
+  so:domainIncludes unepfi:ImpactTopic ;
+  so:rangeIncludes unepfi:ImpactArea .
 unepfi:impacted_by a owl:ObjectProperty ;
   rdfs:label "impacted by" ;
   rdfs:comment "Impact that impacted the Impact Area." ;
-  rdfs:domain unepfi:ImpactArea ;
-  rdfs:range unepfi:Impact .
+  so:domainIncludes unepfi:ImpactArea ;
+  so:rangeIncludes unepfi:Impact .
 unepfi:impactedAreas a owl:ObjectProperty ;
   rdfs:label "impacted areas" ;
   rdfs:comment "Impact Areas impacted by this Impact" ;
-  rdfs:domain unepfi:Impact ;
-  rdfs:range unepfi:ImpactArea .
+  so:domainIncludes unepfi:Impact ;
+  so:rangeIncludes unepfi:ImpactArea .
 <tag:stardog:designer:ERSR_Vocabulary:model:eSRS_sub_sub_topic_to_UNEPFI_impact_area> a owl:ObjectProperty ;
   rdfs:label "eSRS sub sub topic to UNEPFI impact area" ;
   rdfs:comment "ESRS sub sub topic to UNEP-FI Impact Area" ;
-  rdfs:domain ESRSVocabulary:ESRSsubSubTopic ;
-  rdfs:range unepfi:ImpactArea .
+  so:domainIncludes ESRSVocabulary:ESRSsubSubTopic ;
+  so:rangeIncludes unepfi:ImpactArea .
 <tag:stardog:designer:ERSR_Vocabulary:model:eSRS_sub_sub_topic_to_UNEPFI_impact_topic> a owl:ObjectProperty ;
   rdfs:label "eSRS sub sub topic to UNEPFI impact topic" ;
   rdfs:comment "ESRS sub sub topic to UNEP-FI Impact Topic" ;
-  rdfs:domain ESRSVocabulary:ESRSsubSubTopic ;
-  rdfs:range unepfi:ImpactTopic .
+  so:domainIncludes ESRSVocabulary:ESRSsubSubTopic ;
+  so:rangeIncludes unepfi:ImpactTopic .
 <tag:stardog:designer:ERSR_Vocabulary:model:eSRS_sub_topic_to_UNEPFI_impact_area> a owl:ObjectProperty ;
   rdfs:label "eSRS sub topic to UNEPFI impact area" ;
   rdfs:comment "ESR Sub Topic to UNEP-FI Impact Area mapping" ;
-  rdfs:domain ESRSVocabulary:ESRSsubTopic ;
-  rdfs:range unepfi:ImpactArea .
+  so:domainIncludes ESRSVocabulary:ESRSsubTopic ;
+  so:rangeIncludes unepfi:ImpactArea .
 <tag:stardog:designer:ERSR_Vocabulary:model:eSRS_sub_topic_to_UNEPFI_impact_topic> a owl:ObjectProperty ;
   rdfs:label "eSRS sub topic to UNEPFI impact topic" ;
   rdfs:comment "ESRS Sub Topic to UNEP-FI Impact Topic mapping." ;
-  rdfs:domain ESRSVocabulary:ESRSsubTopic ;
-  rdfs:range unepfi:ImpactTopic .
+  so:domainIncludes ESRSVocabulary:ESRSsubTopic ;
+  so:rangeIncludes unepfi:ImpactTopic .
 <tag:stardog:designer:ERSR_Vocabulary:model:has_sub_sub_topic> a owl:ObjectProperty ;
   rdfs:label "has sub sub topic" ;
-  rdfs:domain ESRSVocabulary:ESRSsubTopic ;
-  rdfs:range ESRSVocabulary:ESRSsubSubTopic .
+  so:domainIncludes ESRSVocabulary:ESRSsubTopic ;
+  so:rangeIncludes ESRSVocabulary:ESRSsubSubTopic .
 <tag:stardog:designer:ERSR_Vocabulary:model:has_sub_topic> a owl:ObjectProperty ;
   rdfs:label "has sub topic" ;
-  rdfs:domain ESRSVocabulary:ESRSTopic ;
-  rdfs:range ESRSVocabulary:ESRSsubTopic .
+  so:domainIncludes ESRSVocabulary:ESRSTopic ;
+  so:rangeIncludes ESRSVocabulary:ESRSsubTopic .
 
 unepfi:impactAreaDefinition a owl:DatatypeProperty ;
   rdfs:label "impact area definition" ;

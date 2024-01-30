@@ -29,14 +29,12 @@ TO {
 
   ?UNEPFI_Impact_Area_iri unepfi:areaImpactTopic ?UNEPFI_Impact_Topic_iri .
 
-  ?UNEPFI_Impact_Area_iri unepfi:impacted_by ?UNEPFI_Impact_iri .
-
-  ?UNEPFI_Impact_iri unepfi:impactedAreas ?UNEPFI_Impact_Area_iri .
+  ?UNEPFI_Impact_Area_iri unepfi:impacted_by ?UNEPFI_Impact_iri_1 .
 
   ?UNEPFI_Impact_Topic_iri unepfi:impactAreaForTopic ?UNEPFI_Impact_Area_iri .
 }
 WHERE {
-  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:Impact:{Impact_ID}") AS ?UNEPFI_Impact_iri)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:Impact:{ImpactTopicID}") AS ?UNEPFI_Impact_iri)
   BIND(xsd:string(sourceField("Impact")) AS ?label)
   BIND(StrDt(sourceField("Impact"), xsd:string) AS ?Impact_string_field)
   BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:ImpactArea:{ImpactArea_ID}") AS ?UNEPFI_Impact_Area_iri)
@@ -47,4 +45,5 @@ WHERE {
   BIND(StrDt(sourceField("ImpactTopicDefinition"), xsd:string) AS ?ImpactTopicDefinition_string_field)
   BIND(StrDt(sourceField("MainSDGsEquivalences1"), xsd:string) AS ?MainSDGsEquivalences1_string_field)
   BIND(StrDt(sourceField("MainSDGsEquivalences2"), xsd:string) AS ?MainSDGsEquivalences2_string_field)
+  BIND(TEMPLATE("tag:stardog:designer:ERSR_Vocabulary:data:Impact:{Impact_ID}") AS ?UNEPFI_Impact_iri_1)
 }
