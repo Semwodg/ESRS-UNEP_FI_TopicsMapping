@@ -1,93 +1,93 @@
 ﻿ESRS_ID,Topic,Sub-Topic_ID,Sub-topic,SubSubTopic_ID,Sub-sub-topics
-E1,Climate change,Climatechangeadaptation,Climate change adaptation,,
-E1,Climate change,Climatechangemitigation,Climate change mitigation,,
-E1,Climate change,Energy,Energy,,
-E2,Pollution,Pollutionofair,Pollution of air,,
-E2,Pollution,Pollutionofwater,Pollution of water,,
-E2,Pollution,Pollutionofsoil,Pollution of soil,,
-E2,Pollution,Pollutionoflivingorganismsandfoodresources,Pollution of living organisms and food resources,,
-E2,Pollution,Substancesofconcern,Substances of concern,,
-E2,Pollution,Substanceofveryhighconcern,Substance of very high concern,,
-E2,Pollution,Microplastics,Microplastics,,
-E3,Water and marine resources,Water,Water,Waterwithdrawals,Water withdrawals
-E3,Water and marine resources,Water,Water,Waterconsumption,Water consumption
-E3,Water and marine resources,Water,Water,Wateruse,Water use
-E3,Water and marine resources,Water,Water,Waterdischargesinwaterbodiesandintheoceans,Water discharges in waterbodies and in the oceans
-E3,Water and marine resources,Marineresources,Marine resources,Extractionanduseofmarineresources,Extraction and use of marine resources
-E4,Biodiversity and ecosystems,Directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,Climatechange,Climate change
-E4,Biodiversity and ecosystems,Directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,Landusechangefreshwaterusechangeandseausechange,"Land-use change, fresh water-use change and sea-use change"
-E4,Biodiversity and ecosystems,Directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,Directexploitation,Direct exploitation
-E4,Biodiversity and ecosystems,Directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,Invasivealienspecies,Invasive alien species
-E4,Biodiversity and ecosystems,Directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,Pollution,Pollution
-E4,Biodiversity and ecosystems,Directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,Others,Others
-E4,Biodiversity and ecosystems,Impactsonthestateofspecies,Impacts on the state of species,ExamplesSpeciespopulationsize,"""Examples"" Species population size"
-E4,Biodiversity and ecosystems,Impactsonthestateofspecies,Impacts on the state of species,ExamplesSpeciesglobalextinctionrisk,"""Examples"" Species global extinction risk"
-E4,Biodiversity and ecosystems,Impactsontheextentandconditionofecosystems,Impacts on the extent and condition of ecosystems,ExamplesLanddegredation,"""Examples"" Land degredation"
-E4,Biodiversity and ecosystems,Impactsontheextentandconditionofecosystems,Impacts on the extent and condition of ecosystems,ExamplesDesertification,"""Examples"" Desertification"
-E4,Biodiversity and ecosystems,Impactsontheextentandconditionofecosystems,Impacts on the extent and condition of ecosystems,ExamplesSoilsealing,"""Examples"" Soil sealing"
-E4,Biodiversity and ecosystems,Impactsanddependenciesonecosystemservices,Impacts and dependencies on ecosystem services,,
-E5,Circular economy,Resourcesinflowsincludingresourceuse,"Resources inflows, including resource use",,
-E5,Circular economy,Resourceoutflowsrelatedtoproductsandservices,Resource outflows related to products and services,,
-E5,Circular economy,Waste,Waste,,
-S1,Own workforce,Workingconditions,Working conditions,Secureemployment,Secure employment
-S1,Own workforce,Workingconditions,Working conditions,Workingtime,Working time
-S1,Own workforce,Workingconditions,Working conditions,Adequatewages,Adequate wages
-S1,Own workforce,Workingconditions,Working conditions,Socialdialogue,Social dialogue
-S1,Own workforce,Workingconditions,Working conditions,Freedomofassociationtheexistenceofworkscouncilsandtheinformationconsultationandparticipationrightsofworkers,"Freedom of association, the existence of works councils and the information, consultation and participation rights of workers"
-S1,Own workforce,Workingconditions,Working conditions,Collectivebargainingincludingrateofworkerscoveredbycollectiveagreements,"Collective bargaining, including rate of workers covered by collective agreements"
-S1,Own workforce,Workingconditions,Working conditions,Worklifebalance,Work-life balance
-S1,Own workforce,Workingconditions,Working conditions,Healthandsafety,Health and safety
-S1,Own workforce,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Genderequalityandequalpayforworkofequalvalue,Gender equality and equal pay for work of equal value
-S1,Own workforce,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Trainingandskillsdevelopment,Training and skills development
-S1,Own workforce,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Employmentandinclusionofpersonswithdisabilities,Employment and inclusion of persons with disabilities
-S1,Own workforce,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Measuresagainstviolenceandharassmentintheworkplace,Measures against violence and harassment in the workplace
-S1,Own workforce,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Diversity,Diversity
-S1,Own workforce,Otherworkrelatedrights,Other work-related rights,Childlabour,Child labour
-S1,Own workforce,Otherworkrelatedrights,Other work-related rights,Forcedlabour,Forced labour
-S1,Own workforce,Otherworkrelatedrights,Other work-related rights,Adequatehousing,Adequate housing
-S1,Own workforce,Otherworkrelatedrights,Other work-related rights,Privacy,Privacy
-S2,Workers in the value chain,Workingconditions,Working conditions,Secureemployment,Secure employment
-S2,Workers in the value chain,Workingconditions,Working conditions,Workingtime,Working time
-S2,Workers in the value chain,Workingconditions,Working conditions,Adequatewages,Adequate wages
-S2,Workers in the value chain,Workingconditions,Working conditions,Socialdialogue,Social dialogue
-S2,Workers in the value chain,Workingconditions,Working conditions,Freedomofassociationincludingtheexistenceofworkscouncils,"Freedom of association, including the existence of works councils"
-S2,Workers in the value chain,Workingconditions,Working conditions,Collectivebargaining,Collective bargaining
-S2,Workers in the value chain,Workingconditions,Working conditions,Worklifebalance,Work-life balance
-S2,Workers in the value chain,Workingconditions,Working conditions,Healthandsafety,Health and safety
-S2,Workers in the value chain,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Genderequalityandequalpayforworkofequalvalue,Gender equality and equal pay for work of equal value
-S2,Workers in the value chain,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Trainingandskillsdevelopment,Training and skills development
-S2,Workers in the value chain,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Employmentandinclusionofpersonswithdisabilities,Employment and inclusion of persons with disabilities
-S2,Workers in the value chain,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Measuresagainstviolenceandharassmentintheworkplace,Measures against violence and harassment in the workplace
-S2,Workers in the value chain,Equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,Diversity,Diversity
-S2,Workers in the value chain,Otherworkrelatedrights,Other work-related rights,Childlabour,Child labour
-S2,Workers in the value chain,Otherworkrelatedrights,Other work-related rights,Forcedlabour,Forced labour
-S2,Workers in the value chain,Otherworkrelatedrights,Other work-related rights,Adequatehousing,Adequate housing
-S2,Workers in the value chain,Otherworkrelatedrights,Other work-related rights,Waterandsanitation,Water and sanitation
-S2,Workers in the value chain,Otherworkrelatedrights,Other work-related rights,Privacy,Privacy
-S3,Affected communities,Communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",Adequatehousing,Adequate housing
-S3,Affected communities,Communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",Adequatefood,Adequate food
-S3,Affected communities,Communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",Waterandsanitation,Water and sanitation
-S3,Affected communities,Communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",Landrelatedimpacts,Land-related impacts
-S3,Affected communities,Communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",Securityrelatedimpacts,Security-related impacts
-S3,Affected communities,Communities'civilandpoliticalrights,Communities' civil and political rights,Freedomofexpression,Freedom of expression
-S3,Affected communities,Communities'civilandpoliticalrights,Communities' civil and political rights,Freedomofassembly,Freedom of assembly
-S3,Affected communities,Communities'civilandpoliticalrights,Communities' civil and political rights,Impactsonhumanrightsdefenders,Impacts on human rights defenders
-S3,Affected communities,Rightsofindigenouscommunities,Rights of indigenous communities,Freepriorandinformedconsent,"Free, prior and informed consent"
-S3,Affected communities,Rightsofindigenouscommunities,Rights of indigenous communities,Selfdetermination,Self-determination
-S3,Affected communities,Rightsofindigenouscommunities,Rights of indigenous communities,Culturalrights,Cultural rights
-E4,Consumers and end-users,Informationrelatedimpactsforconsumersandorendusers,Information-related impacts for consumers and/or end users,Privacy,Privacy
-E4,Consumers and end-users,Informationrelatedimpactsforconsumersandorendusers,Information-related impacts for consumers and/or end users,Freedomofexpression,Freedom of expression
-E4,Consumers and end-users,Informationrelatedimpactsforconsumersandorendusers,Information-related impacts for consumers and/or end users,Accesstoqualityinformation,Access to (quality) information
-E4,Consumers and end-users,Personalsafetyofconsumersandorendusers,Personal safety of consumers and/or end-users,Healthandsafety,Health and safety
-E4,Consumers and end-users,Personalsafetyofconsumersandorendusers,Personal safety of consumers and/or end-users,Securityofaperson,Security of a person
-E4,Consumers and end-users,Personalsafetyofconsumersandorendusers,Personal safety of consumers and/or end-users,Protectionofchildren,Protection of children
-E4,Consumers and end-users,Socialinclusionofconsumersandorendusers,Social inclusion of consumers and/or end-users,Nondiscrimination,Non-discrimination
-E4,Consumers and end-users,Socialinclusionofconsumersandorendusers,Social inclusion of consumers and/or end-users,Accesstoproductsandservices,Access to products and services
-E4,Consumers and end-users,Socialinclusionofconsumersandorendusers,Social inclusion of consumers and/or end-users,Responsiblemarketingpractices,Responsible marketing practices
-G1,Business conduct,Corporateculture,Corporate culture,,
-G1,Business conduct,Protectionofwhistleblowers,Protection of whistle-blowers,,
-G1,Business conduct,Animalwelfare,Animal welfare,,
-G1,Business conduct,Politicalengagement,Political engagement,,
-G1,Business conduct,Managementofrelationshipswithsuppliersincludingpaymentpractices,Management of relationships with suppliers including payment practices,,
-G1,Business conduct,Corruptionandbribery,Corruption and bribery,Preventionanddetectionincludingtraining,Prevention and detection including training
-G1,Business conduct,Corruptionandbribery,Corruption and bribery,Incidents,Incidents
+E1,Climate change,climatechangeadaptation,Climate change adaptation,,
+E1,Climate change,climatechangemitigation,Climate change mitigation,,
+E1,Climate change,energy,Energy,,
+E2,Pollution,pollutionofair,Pollution of air,,
+E2,Pollution,pollutionofwater,Pollution of water,,
+E2,Pollution,pollutionofsoil,Pollution of soil,,
+E2,Pollution,pollutionoflivingorganismsandfoodresources,Pollution of living organisms and food resources,,
+E2,Pollution,substancesofconcern,Substances of concern,,
+E2,Pollution,substanceofveryhighconcern,Substance of very high concern,,
+E2,Pollution,microplastics,Microplastics,,
+E3,Water and marine resources,water,Water,waterwithdrawals,Water withdrawals
+E3,Water and marine resources,water,Water,waterconsumption,Water consumption
+E3,Water and marine resources,water,Water,wateruse,Water use
+E3,Water and marine resources,water,Water,waterdischargesinwaterbodiesandintheoceans,Water discharges in waterbodies and in the oceans
+E3,Water and marine resources,marineresources,Marine resources,extractionanduseofmarineresources,Extraction and use of marine resources
+E4,Biodiversity and ecosystems,directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,climatechange,Climate change
+E4,Biodiversity and ecosystems,directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,landusechangefreshwaterusechangeandseausechange,"Land-use change, fresh water-use change and sea-use change"
+E4,Biodiversity and ecosystems,directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,directexploitation,Direct exploitation
+E4,Biodiversity and ecosystems,directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,invasivealienspecies,Invasive alien species
+E4,Biodiversity and ecosystems,directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,pollution,Pollution
+E4,Biodiversity and ecosystems,directimpactdriversofbiodiversityloss,Direct impact drivers of biodiversity loss,others,Others
+E4,Biodiversity and ecosystems,impactsonthestateofspecies,Impacts on the state of species,examplesspeciespopulationsize,Examples Species population size
+E4,Biodiversity and ecosystems,impactsonthestateofspecies,Impacts on the state of species,examplesspeciesglobalextinctionrisk,Examples Species global extinction risk
+E4,Biodiversity and ecosystems,impactsontheextentandconditionofecosystems,Impacts on the extent and condition of ecosystems,exampleslanddegredation,Examples Land degredation
+E4,Biodiversity and ecosystems,impactsontheextentandconditionofecosystems,Impacts on the extent and condition of ecosystems,examplesdesertification,Examples Desertification
+E4,Biodiversity and ecosystems,impactsontheextentandconditionofecosystems,Impacts on the extent and condition of ecosystems,examplessoilsealing,Examples Soil sealing
+E4,Biodiversity and ecosystems,impactsanddependenciesonecosystemservices,Impacts and dependencies on ecosystem services,,
+E5,Circular economy,resourcesinflowsincludingresourceuse,"Resources inflows, including resource use",,
+E5,Circular economy,resourceoutflowsrelatedtoproductsandservices,Resource outflows related to products and services,,
+E5,Circular economy,waste,Waste,,
+S1,Own workforce,workingconditions,Working conditions,secureemployment,Secure employment
+S1,Own workforce,workingconditions,Working conditions,workingtime,Working time
+S1,Own workforce,workingconditions,Working conditions,adequatewages,Adequate wages
+S1,Own workforce,workingconditions,Working conditions,socialdialogue,Social dialogue
+S1,Own workforce,workingconditions,Working conditions,freedomofassociationtheexistenceofworkscouncilsandtheinformationconsultationandparticipationrightsofworkers,"Freedom of association, the existence of works councils and the information, consultation and participation rights of workers"
+S1,Own workforce,workingconditions,Working conditions,collectivebargainingincludingrateofworkerscoveredbycollectiveagreements,"Collective bargaining, including rate of workers covered by collective agreements"
+S1,Own workforce,workingconditions,Working conditions,worklifebalance,Work-life balance
+S1,Own workforce,workingconditions,Working conditions,healthandsafety,Health and safety
+S1,Own workforce,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,genderequalityandequalpayforworkofequalvalue,Gender equality and equal pay for work of equal value
+S1,Own workforce,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,trainingandskillsdevelopment,Training and skills development
+S1,Own workforce,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,employmentandinclusionofpersonswithdisabilities,Employment and inclusion of persons with disabilities
+S1,Own workforce,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,measuresagainstviolenceandharassmentintheworkplace,Measures against violence and harassment in the workplace
+S1,Own workforce,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,diversity,Diversity
+S1,Own workforce,otherworkrelatedrights,Other work-related rights,childlabour,Child labour
+S1,Own workforce,otherworkrelatedrights,Other work-related rights,forcedlabour,Forced labour
+S1,Own workforce,otherworkrelatedrights,Other work-related rights,adequatehousing,Adequate housing
+S1,Own workforce,otherworkrelatedrights,Other work-related rights,privacy,Privacy
+S2,Workers in the value chain,workingconditions,Working conditions,secureemployment,Secure employment
+S2,Workers in the value chain,workingconditions,Working conditions,workingtime,Working time
+S2,Workers in the value chain,workingconditions,Working conditions,adequatewages,Adequate wages
+S2,Workers in the value chain,workingconditions,Working conditions,socialdialogue,Social dialogue
+S2,Workers in the value chain,workingconditions,Working conditions,freedomofassociationincludingtheexistenceofworkscouncils,"Freedom of association, including the existence of works councils"
+S2,Workers in the value chain,workingconditions,Working conditions,collectivebargaining,Collective bargaining
+S2,Workers in the value chain,workingconditions,Working conditions,worklifebalance,Work-life balance
+S2,Workers in the value chain,workingconditions,Working conditions,healthandsafety,Health and safety
+S2,Workers in the value chain,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,genderequalityandequalpayforworkofequalvalue,Gender equality and equal pay for work of equal value
+S2,Workers in the value chain,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,trainingandskillsdevelopment,Training and skills development
+S2,Workers in the value chain,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,employmentandinclusionofpersonswithdisabilities,Employment and inclusion of persons with disabilities
+S2,Workers in the value chain,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,measuresagainstviolenceandharassmentintheworkplace,Measures against violence and harassment in the workplace
+S2,Workers in the value chain,equaltreatmentandopportunitiesforall,Equal treatment and opportunities for all,diversity,Diversity
+S2,Workers in the value chain,otherworkrelatedrights,Other work-related rights,childlabour,Child labour
+S2,Workers in the value chain,otherworkrelatedrights,Other work-related rights,forcedlabour,Forced labour
+S2,Workers in the value chain,otherworkrelatedrights,Other work-related rights,adequatehousing,Adequate housing
+S2,Workers in the value chain,otherworkrelatedrights,Other work-related rights,waterandsanitation,Water and sanitation
+S2,Workers in the value chain,otherworkrelatedrights,Other work-related rights,privacy,Privacy
+S3,Affected communities,communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",adequatehousing,Adequate housing
+S3,Affected communities,communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",adequatefood,Adequate food
+S3,Affected communities,communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",waterandsanitation,Water and sanitation
+S3,Affected communities,communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",landrelatedimpacts,Land-related impacts
+S3,Affected communities,communities'economicsocialandculturalrights,"Communities' economic, social and cultural rights",securityrelatedimpacts,Security-related impacts
+S3,Affected communities,communities'civilandpoliticalrights,Communities' civil and political rights,freedomofexpression,Freedom of expression
+S3,Affected communities,communities'civilandpoliticalrights,Communities' civil and political rights,freedomofassembly,Freedom of assembly
+S3,Affected communities,communities'civilandpoliticalrights,Communities' civil and political rights,impactsonhumanrightsdefenders,Impacts on human rights defenders
+S3,Affected communities,rightsofindigenouscommunities,Rights of indigenous communities,freepriorandinformedconsent,"Free, prior and informed consent"
+S3,Affected communities,rightsofindigenouscommunities,Rights of indigenous communities,selfdetermination,Self-determination
+S3,Affected communities,rightsofindigenouscommunities,Rights of indigenous communities,culturalrights,Cultural rights
+E4,Consumers and end-users,informationrelatedimpactsforconsumersandorendusers,Information-related impacts for consumers and/or end users,privacy,Privacy
+E4,Consumers and end-users,informationrelatedimpactsforconsumersandorendusers,Information-related impacts for consumers and/or end users,freedomofexpression,Freedom of expression
+E4,Consumers and end-users,informationrelatedimpactsforconsumersandorendusers,Information-related impacts for consumers and/or end users,accesstoqualityinformation,Access to (quality) information
+E4,Consumers and end-users,personalsafetyofconsumersandorendusers,Personal safety of consumers and/or end-users,healthandsafety,Health and safety
+E4,Consumers and end-users,personalsafetyofconsumersandorendusers,Personal safety of consumers and/or end-users,securityofaperson,Security of a person
+E4,Consumers and end-users,personalsafetyofconsumersandorendusers,Personal safety of consumers and/or end-users,protectionofchildren,Protection of children
+E4,Consumers and end-users,socialinclusionofconsumersandorendusers,Social inclusion of consumers and/or end-users,nondiscrimination,Non-discrimination
+E4,Consumers and end-users,socialinclusionofconsumersandorendusers,Social inclusion of consumers and/or end-users,accesstoproductsandservices,Access to products and services
+E4,Consumers and end-users,socialinclusionofconsumersandorendusers,Social inclusion of consumers and/or end-users,responsiblemarketingpractices,Responsible marketing practices
+G1,Business conduct,corporateculture,Corporate culture,,
+G1,Business conduct,protectionofwhistleblowers,Protection of whistle-blowers,,
+G1,Business conduct,animalwelfare,Animal welfare,,
+G1,Business conduct,politicalengagement,Political engagement,,
+G1,Business conduct,managementofrelationshipswithsuppliersincludingpaymentpractices,Management of relationships with suppliers including payment practices,,
+G1,Business conduct,corruptionandbribery,Corruption and bribery,preventionanddetectionincludingtraining,Prevention and detection including training
+G1,Business conduct,corruptionandbribery,Corruption and bribery,incidents,Incidents
